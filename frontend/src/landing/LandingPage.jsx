@@ -160,9 +160,28 @@ export function LandingPage({ onStart, onAdmin, theme, toggleTheme }) {
         <div className="es-hero-tag" data-hero-stagger>
           // Decentralized Escrow Protocol
         </div>
-        <h1 className="es-hero-title" data-hero-stagger>
-          ESCROW<span>LY</span>
-        </h1>
+<h1 className="es-hero-title" data-hero-stagger>
+           <span className="es-glitch-word">
+            {"ESCROWLY".split("").map((letter, i) => {
+  const isSpecial = letter === "L" || letter === "Y";
+
+  return (
+    <span
+      className="es-glitch-letter"
+      style={{ color: isSpecial ? "#171E2E" : "#C25D36" }}
+      data-letter={letter}
+      key={i}
+    >
+      {letter}
+      <span className="es-spark" style={{ color: isSpecial ? "#171E2E" : "#C25D36" }}/>
+      <span className="es-spark" style={{ color: isSpecial ? "#171E2E" : "#C25D36" }}/>
+      <span className="es-spark" style={{ color: isSpecial ? "#171E2E" : "#C25D36" }}/>
+      <span className="es-spark" style={{ color: isSpecial ? "#171E2E" : "#C25D36" }}/>
+    </span>
+  );
+})}
+           </span>
+         </h1>
         <p className="es-hero-desc" data-hero-stagger>
           A blockchain-powered escrow service that holds funds in smart contracts until work is verified. No central authority. No broken promises. Just transparent, automated trust.
         </p>
