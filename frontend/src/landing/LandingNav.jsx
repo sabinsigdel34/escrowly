@@ -31,8 +31,7 @@ export function LandingNav({ onStart, onAdmin, theme, toggleTheme }) {
         onClick={() => setOpen((v) => !v)}
         data-cursor="hover"
       >
-        <span />
-        <span />
+        <i className={`fas ${open ? "fa-xmark" : "fa-bars"}`} aria-hidden="true" />
       </button>
 
       <div className="es-nav-links" aria-label="Primary">

@@ -1,8 +1,7 @@
 import React from "react";
-import { ethers } from "ethers";
 import { Ban, Check, X } from "lucide-react";
 import { formatDate } from "../lib/format";
-import { statusLabels, statusStyles } from "../lib/escrow";
+import { lamportsToSol, statusLabels, statusStyles } from "../lib/escrow";
 import { PrimaryButton } from "../components/ui/PrimaryButton";
 import { SecondaryButton } from "../components/ui/SecondaryButton";
 import { DealRow } from "./DealRow";
@@ -25,7 +24,7 @@ export function DealDetail({ busy, cancelRequested, copyAddress, deal, funded, i
       <div className="grid gap-3 text-sm">
         <DealRow label="Buyer" value={deal.buyer} onCopy={() => copyAddress(deal.buyer)} />
         <DealRow label="Seller" value={deal.seller} onCopy={() => copyAddress(deal.seller)} />
-        <DealRow label="Amount" value={`${ethers.formatEther(deal.amount)} ETH`} />
+        <DealRow label="Amount" value={`${lamportsToSol(deal.amountLamports).toFixed(4)} SOL`} />
         <DealRow label="Created" value={formatDate(deal.createdAt)} />
         <DealRow label="Completed" value={formatDate(deal.completedAt)} />
       </div>

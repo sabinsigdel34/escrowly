@@ -1,10 +1,9 @@
 import React from "react";
 import { BarChart3, ChevronRight, RefreshCw, Users } from "lucide-react";
-import { ethers } from "ethers";
 import { SecondaryButton } from "../components/ui/SecondaryButton";
 import { Stat } from "./Stat";
 import { formatDate, shortAddress } from "../lib/format";
-import { statusLabels, statusStyles } from "../lib/escrow";
+import { lamportsToSol, statusLabels, statusStyles } from "../lib/escrow";
 
 export function AdminDashboard({ adminDeals, adminLoadedAt, adminStats, busy, contractAddress, loadAdminDeals, setDealId, setView }) {
   return (
@@ -21,7 +20,7 @@ export function AdminDashboard({ adminDeals, adminLoadedAt, adminStats, busy, co
 
       <div className="grid gap-4 md:grid-cols-4">
         <Stat label="All Deals" value={adminStats.total.toString()} />
-        <Stat label="Volume" value={`${adminStats.volume.toFixed(4)} ETH`} />
+        <Stat label="Volume" value={`${adminStats.volume.toFixed(4)} SOL`} />
         <Stat label="Funded" value={adminStats.funded.toString()} />
         <Stat label="Released" value={adminStats.released.toString()} />
       </div>
@@ -59,7 +58,7 @@ export function AdminDashboard({ adminDeals, adminLoadedAt, adminStats, busy, co
                         {statusLabels[row.status]}
                       </span>
                     </td>
-                    <td className="px-4 py-3 font-semibold text-zinc-100">{ethers.formatEther(row.amount)} ETH</td>
+                    <td className="px-4 py-3 font-semibold text-zinc-100">{lamportsToSol(row.amountLamports).toFixed(4)} SOL</td>
                     <td className="px-4 py-3 text-zinc-400">{shortAddress(row.buyer)}</td>
                     <td className="px-4 py-3 text-zinc-400">{shortAddress(row.seller)}</td>
                     <td className="max-w-[220px] truncate px-4 py-3 text-zinc-300">{row.description}</td>

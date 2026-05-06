@@ -1,5 +1,3 @@
-import { ethers } from "ethers";
-
 export const statusLabels = ["Funded", "Released", "Cancel Requested", "Refunded"];
 export const statusStyles = [
   "border-emerald-500/30 bg-emerald-500/10 text-emerald-200",
@@ -13,7 +11,7 @@ export function normalizeDeal(id, data) {
     id,
     buyer: data.buyer,
     seller: data.seller,
-    amount: data.amount,
+    amountLamports: Number(data.amountLamports ?? data.amount ?? 0),
     description: data.description,
     status: Number(data.status),
     createdAt: data.createdAt,
@@ -21,11 +19,15 @@ export function normalizeDeal(id, data) {
   };
 }
 
+export function lamportsToSol(lamports) {
+  return Number(lamports || 0) / 1_000_000_000;
+}
+
 export function getAdminStats(deals) {
   return deals.reduce(
     (stats, deal) => {
       stats.total += 1;
-      stats.volume += Number(ethers.formatEther(deal.amount));
+      stats.volume += lamportsToSol(deal.amountLamports);
       if (deal.status === 0) stats.funded += 1;
       if (deal.status === 1) stats.released += 1;
       if (deal.status === 2) stats.cancelRequested += 1;

@@ -48,7 +48,7 @@ export function BuyerDashboard(props) {
             <Field label="Seller Address">
               <input
                 className="h-11 rounded-md border border-zinc-800 bg-black px-3 text-sm outline-none transition placeholder:text-zinc-600 focus:border-ember-600"
-                placeholder="0x..."
+                placeholder="Solana wallet (base58)"
                 value={seller}
                 onChange={(event) => setSeller(event.target.value)}
                 required
@@ -64,7 +64,7 @@ export function BuyerDashboard(props) {
                     onChange={(event) => setAmount(event.target.value)}
                     required
                   />
-                  <span className="grid place-items-center border-l border-zinc-800 px-3 text-xs font-bold text-zinc-500">ETH</span>
+                  <span className="grid place-items-center border-l border-zinc-800 px-3 text-xs font-bold text-zinc-500">SOL</span>
                 </div>
               </Field>
 
@@ -118,8 +118,8 @@ export function BuyerDashboard(props) {
       </section>
 
       <section className="grid gap-4 md:grid-cols-3">
-        <Stat label="Contract" value={contractAddress ? shortAddress(contractAddress) : "Missing"} />
-        <Stat label="Network" value={chainId ? `Chain ${chainId}` : "Disconnected"} />
+        <Stat label="Program" value={contractAddress ? shortAddress(contractAddress) : "API mode"} />
+        <Stat label="Network" value={chainId || "Disconnected"} />
         <Stat label="Wallet" value={account ? "Connected" : "Locked"} />
       </section>
     </>

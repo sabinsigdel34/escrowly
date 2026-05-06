@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "id": "f418dc8c-c859-4735-a734-1641bd21ade4",
+      "name": "Sabin",
+      "email": "sabinsigdel80@gmail.com",
+      "passwordHash": "$2a$12$SYNVLgCiGvygbgdX3wq4zuRPlFrsiagsU1YMnCsPE5JArQJlDfmta",
+      "role": "admin",
+      "isActive": true,
+      "isBlocked": false,
+      "provider": "local",
+      "createdAt": "2026-05-02T18:01:26.328Z",
+      "updatedAt": "2026-05-02T18:01:26.328Z"
+    },
+    {
+      "id": "aba56b75-b4cb-460d-9b1d-c39db4dbf4ee",
+      "name": "mygoal",
+      "email": "mygoalw@gmail.com",
+      "passwordHash": "$2a$12$Tfy5FYehRMge.jyy3Fw4CuKYTFXpfpX8bdk3l8AFNVI06vOjTN/o6",
+      "role": "user",
+      "isActive": false,
+      "isBlocked": false,
+      "provider": "local",
+      "createdAt": "2026-05-02T18:28:14.026Z",
+      "updatedAt": "2026-05-02T18:28:14.026Z"
+    }
+  ],
+  "tokens": [
+    {
+      "value": "4d1e02bcf72944c0308cf7a5595a5f45dac1922e97213fc2df03158a663f1bbf",
+      "userId": "aba56b75-b4cb-460d-9b1d-c39db4dbf4ee",
+      "type": "activation",
+      "expiresAt": "2026-05-03T18:28:14.035Z",
+      "createdAt": "2026-05-02T18:28:14.035Z"
+    }
+  ],
+  "deals": [],
+  "nextDealId": 1
+}
